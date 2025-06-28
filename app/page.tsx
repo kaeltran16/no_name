@@ -21,44 +21,25 @@ const cormorantGaramond = Cormorant_Garamond({
   variable: "--font-cormorant",
 })
 
-const quotes = [
-  "You are the poetry my heart writes in the silence of dawn, the melody that dances through my dreams, and the light that makes even the darkest nights feel like home.",
-  "In your eyes, I found my favorite place to get lost. In your smile, I found my reason to keep searching. In your love, I found my forever.",
-  "You are my serendipity, my unexpected joy, the beautiful accident that became my greatest purpose and most cherished blessing.",
-  "With you, I've learned that home isn't a place—it's a heartbeat, a laugh, a hand to hold, and a soul that speaks the same language as mine.",
-  "You are the missing verse in the poem of my existence, the golden thread that weaves through the tapestry of my dreams.",
-]
 
 const blessingsData = [
   {
     icon: "🌹",
     title: "Eternal Devotion",
     description:
-      "My love will be the lighthouse in your storms, the compass in your wandering, and the home your heart returns to at the end of every day.",
+      "You get a soulmate, a best friend, a partner in crime, a confidant, a everything. You get a everything.",
   },
   {
-    icon: "✨",
-    title: "Sacred Intimacy",
+    icon: "🎁",
+    title: "Gift of Love",
     description:
-      "In the cathedral of our love, we'll whisper secrets to the stars, share dreams that dance on moonbeams, and create a sanctuary where souls touch eternally.",
+      "Gift every holiday, every birthday, every special occasion with a gift that is as unique as you are. You get a gift that is as unique as you are.",
   },
   {
-    icon: "🌙",
-    title: "Midnight Serenades",
+    icon: "📱",
+    title: "Texts of Love",
     description:
-      "Under velvet skies painted with silver stars, we'll write love letters in the language of touch, speaking truths that only hearts can understand.",
-  },
-  {
-    icon: "💫",
-    title: "Dreams Intertwined",
-    description:
-      "Your aspirations will become the wings of my purpose, your happiness the compass of my journey, as we paint tomorrow with colors of shared dreams.",
-  },
-  {
-    icon: "🕯️",
-    title: "Tender Guardian",
-    description:
-      "I'll be your gentle strength when the world feels heavy, your warm embrace when shadows fall, and your celebration when joy fills your heart.",
+      "Morning texts, night texts, texts in the middle of the day, texts in the middle of the night, texts in the middle of the week, texts in the middle of the month, texts in the middle of the year, texts in the middle of the decade, texts in the middle of the century, texts in the middle of the millennium, texts in the middle of the eternity. You get a text that is as unique as you are.",
   },
   {
     icon: "🎭",
@@ -69,42 +50,7 @@ const blessingsData = [
 ]
 
 const promisesData = [
-  {
-    icon: "💝",
-    title: "Dawn's Sweet Devotion",
-    description:
-      "Every sunrise will bring whispered adorations, gentle caresses, and promises renewed, as I fall deeper in love with you with each passing breath.",
-  },
-  {
-    icon: "🎵",
-    title: "Love's Symphony",
-    description:
-      "I'll compose sonnets with my fingertips on your skin, sing lullabies to your dreams, and make music from the rhythm of our synchronized heartbeats.",
-  },
-  {
-    icon: "🌺",
-    title: "Endless Romance",
-    description:
-      "Our love story will be an eternal spring—midnight picnics under shooting stars, love notes hidden in your favorite places, and surprises that make your heart skip.",
-  },
-  {
-    icon: "🔥",
-    title: "Passionate Devotion",
-    description:
-      "My love burns with the intensity of a thousand suns yet gentle as candlelight—fierce enough to move mountains, soft enough to catch your tears.",
-  },
-  {
-    icon: "🌈",
-    title: "Infinite Wonder",
-    description:
-      "With you, mundane moments become magical, ordinary days transform into adventures, and every sunset becomes a masterpiece painted just for us.",
-  },
-  {
-    icon: "🦋",
-    title: "Transformative Love",
-    description:
-      "Together we'll grow into the most beautiful versions of ourselves, supporting each other's metamorphosis while falling deeper in love with who we become.",
-  },
+  {icon: "💔", title: "Nothing", description: "Absolute nothing :)"},
 ]
 
 export default function RomanticConfession() {
@@ -120,14 +66,10 @@ export default function RomanticConfession() {
 
     const heartInterval = setInterval(createHeart, 3000)
     const musicInterval = setInterval(createMusicNote, 8000)
-    const quoteInterval = setInterval(() => {
-      setCurrentQuote((prev) => (prev + 1) % quotes.length)
-    }, 15000)
 
     return () => {
       clearInterval(heartInterval)
       clearInterval(musicInterval)
-      clearInterval(quoteInterval)
     }
   }, [])
 
@@ -266,13 +208,7 @@ export default function RomanticConfession() {
   const handleYes = () => {
     setModalContent({
       title: "My Soul Soars to Heaven! 💕",
-      message: `In this moment, you have transformed my entire universe into a symphony of pure joy! Every star in the sky now shines brighter, every flower blooms more beautifully, and every breath I take is filled with the sweetest essence of love.
-
-You are my miracle, my answered prayer, my forever home. I promise to love you with a passion that burns brighter than the sun, gentler than moonlight, and deeper than the ocean's embrace.
-
-Our love story begins now, written in golden ink across the pages of eternity...
-
-Welcome to our enchanted forever, my beloved soulmate... 🌹✨💍`,
+      message: ``,
     })
     setShowModal(true)
 
@@ -325,7 +261,7 @@ Forever yours in patient devotion, through seasons of waiting and dreams of tomo
       <div className="floating-hearts" ref={heartsRef}></div>
 
       <div className="container">
-        <div className="header" onClick={createMagicEffect}>
+        <div className="header mb-4" onClick={createMagicEffect}>
           <h1 className="main-title">{"My Heart's Eternal Confession"}</h1>
           <p className="subtitle">
             {
@@ -334,9 +270,7 @@ Forever yours in patient devotion, through seasons of waiting and dreams of tomo
           </p>
         </div>
 
-        <div className="love-quote" onClick={createHeartBurst}>
-          {quotes[currentQuote]}
-        </div>
+      
 
         <div className="content-section">
           <div className="tabs">
@@ -347,7 +281,7 @@ Forever yours in patient devotion, through seasons of waiting and dreams of tomo
                 createSparkles(e.currentTarget as HTMLElement)
               }}
             >
-              Sacred Blessings
+              What you get
             </div>
             <div
               className={`tab ${activeTab === "promises" ? "active" : ""}`}
@@ -356,7 +290,7 @@ Forever yours in patient devotion, through seasons of waiting and dreams of tomo
                 createSparkles(e.currentTarget as HTMLElement)
               }}
             >
-              Eternal Promises
+              What you lost
             </div>
           </div>
 
@@ -404,9 +338,7 @@ Forever yours in patient devotion, through seasons of waiting and dreams of tomo
             <button className="btn btn-yes" onClick={handleYes}>
               Yes, Forever & Always
             </button>
-            <button className="btn btn-no" onClick={handleNo}>
-              I Need Time to Dream
-            </button>
+        
           </div>
         </div>
       </div>

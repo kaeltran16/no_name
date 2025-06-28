@@ -312,6 +312,11 @@
   margin-bottom: 20px;
 }
 
+.compact-grid:only-child,
+.compact-grid:has(:only-child) {
+  grid-template-columns: 1fr;
+}
+
 .compact-item {
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.15);
